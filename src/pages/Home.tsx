@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Hero from "../components/Hero/Hero";
 import Amenities from "../components/Amenities/Amenities";
 import Gallery from "../components/Gallery/Gallery";
-import Properties from "../components/Properties";
+import Properties from "../components/Properties/Properties";
 import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer/Footer";
 

@@ -1,10 +1,11 @@
 import AmenityCard from "./components/AmenityCard";
 import { amenities } from "./data/amenities";
+import Container from "../shared/Container";
 
 function Amenities() {
   return (
     <section id="amenidades" className="bg-stone-50 py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <Container>
         <header className="mx-auto mb-12 max-w-2xl text-center">
           <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">
             Amenidades diseñadas para tu estilo de vida
@@ -25,7 +26,7 @@ function Amenities() {
             />
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

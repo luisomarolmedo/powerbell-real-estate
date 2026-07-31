@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CtaButton from "./components/CtaButton";
+import Button from "../shared/Button";
 import HamburgerButton from "./components/HamburgerButton";
 import MobileMenu from "./components/MobileMenu";
 import NavLinks from "./components/NavLinks";
@@ -34,7 +34,7 @@ function Navbar() {
         </div>
 
         <div className="hidden items-center justify-end gap-4 md:flex">
-          <CtaButton />
+          <Button />
         </div>
 
         <HamburgerButton isOpen={isMobileMenuOpen} onClick={toggleMobileMenu} />

@@ -1,4 +1,4 @@
-import CtaButton from "./CtaButton";
+import Button from "../../shared/Button";
 import NavLinks from "./NavLinks";
 
 type MobileMenuProps = {
@@ -18,7 +18,7 @@ function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     >
       <NavLinks orientation="vertical" onLinkClick={onClose} />
       <div className="border-t border-stone-100 px-4 py-4">
-        <CtaButton className="w-full" onClick={onClose} />
+        <Button className="w-full" onClick={onClose} />
       </div>
     </div>
   );

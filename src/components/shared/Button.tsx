@@ -1,9 +1,9 @@
-type CtaButtonProps = {
+type ButtonProps = {
   className?: string;
   onClick?: () => void;
 };
 
-function CtaButton({ className = "", onClick }: CtaButtonProps) {
+function Button({ className = "", onClick }: ButtonProps) {
   return (
     <button
       type="button"
@@ -15,4 +15,4 @@ function CtaButton({ className = "", onClick }: CtaButtonProps) {
   );
 }
 
-export default CtaButton;
+export default Button;
