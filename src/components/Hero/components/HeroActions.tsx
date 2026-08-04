@@ -3,11 +3,9 @@ import Button from "../../shared/Button";
 function HeroActions() {
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-      <Button />
+      <Button>Agenda una visita</Button>
 
-      <a href="#departamentos" className="...">
-        Ver departamentos
-      </a>
+      <Button variant="secondary">Ver departamentos</Button>
     </div>
   );
 }

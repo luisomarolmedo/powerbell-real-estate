@@ -18,7 +18,9 @@ function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     >
       <NavLinks orientation="vertical" onLinkClick={onClose} />
       <div className="border-t border-stone-100 px-4 py-4">
-        <Button className="w-full" onClick={onClose} />
+        <Button className="w-full" onClick={onClose}>
+          Agenda una visita
+        </Button>
       </div>
     </div>
   );

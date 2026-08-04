@@ -8,7 +8,7 @@ function Properties() {
       <Container>
         <header className="mx-auto mb-12 max-w-2xl text-center">
           <h2 className="text-3xl font-semibold text-stone-900 sm:text-4xl">
-            Estos son los departamentos que ofrecemos
+            Espacios diseñados para cada etapa de tu vida
           </h2>
 
           <p className="mt-4 text-stone-600">Esto se cambiará después</p>

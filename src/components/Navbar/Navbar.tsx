@@ -34,7 +34,7 @@ function Navbar() {
         </div>
 
         <div className="hidden items-center justify-end gap-4 md:flex">
-          <Button />
+          <Button>Agenda una visita</Button>
         </div>
 
         <HamburgerButton isOpen={isMobileMenuOpen} onClick={toggleMobileMenu} />
