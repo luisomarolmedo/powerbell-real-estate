@@ -1,5 +1,6 @@
 import heroImage from "../../../assets/images/hero.png";
 import Button from "../../shared/Button";
+import Card from "../../shared/Card";
 
 type PropertyCardProps = {
   name: string;
@@ -17,7 +18,7 @@ function PropertyCard({
   area,
 }: PropertyCardProps) {
   return (
-    <article className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <Card className="">
       <img src={heroImage} alt={name} className="h-64 w-full object-cover" />
 
       <div className="space-y-4 p-6">
@@ -35,7 +36,7 @@ function PropertyCard({
 
         <Button>Ver detalles</Button>
       </div>
-    </article>
+    </Card>
   );
 }
 export default PropertyCard;
