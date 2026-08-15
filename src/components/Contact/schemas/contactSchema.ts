@@ -5,7 +5,7 @@ export const contactSchema = z.object({
 
   email: z.email("Correo inválido."),
 
-  phone: z.string().min(10, "Número inválido."),
+  phone: z.string().optional(),
 
   message: z.string().min(10, "Escribe un mensaje."),
 });

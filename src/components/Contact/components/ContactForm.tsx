@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect } from "react";
+import { useForm as useFormspree } from "@formspree/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import Button from "../../shared/Button";
 
 import { contactSchema, type ContactFormData } from "../schemas/contactSchema";
+
+const FORMSPREE_ID = "mvkpbkeb";
 
 const baseFieldClass =
   "w-full rounded-lg border bg-white p-3 text-stone-900 placeholder:text-stone-400 transition-colors focus:outline-none focus:ring-2";
@@ -14,10 +17,8 @@ const fieldClassByState = (hasError: boolean) =>
     ? "border-red-500 focus:border-red-500 focus:ring-red-500/15"
     : "border-stone-300 focus:border-stone-900 focus:ring-stone-900/15";
 
-type SubmitStatus = "idle" | "sending" | "success";
-
 function ContactForm() {
-  const [status, setStatus] = useState<SubmitStatus>("idle");
+  const [state, submit] = useFormspree<ContactFormData>(FORMSPREE_ID);
 
   const {
     register,
@@ -28,21 +29,22 @@ function ContactForm() {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = () => {
-    if (status === "sending") {
-      return;
-    }
-
-    setStatus("sending");
-
-    window.setTimeout(() => {
-      setStatus("success");
+  useEffect(() => {
+    if (state.succeeded) {
       reset();
-    }, 1200);
-  };
+    }
+  }, [state.succeeded, reset]);
+
+  const onSubmit = handleSubmit(async (data) => {
+    await submit(data);
+  });
+
+  const isSubmitting = state.submitting;
+  const hasSucceeded = state.succeeded;
+  const hasError = !state.submitting && !state.succeeded && state.errors !== null;
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+    <form onSubmit={onSubmit} className="space-y-5">
       <div>
         <label
           htmlFor="name"
@@ -159,7 +161,7 @@ function ContactForm() {
         )}
       </div>
 
-      {status === "success" && (
+      {hasSucceeded && (
         <p
           role="status"
           className="rounded-lg border border-green-300 bg-green-50 p-3 text-sm text-green-800"
@@ -168,8 +170,17 @@ function ContactForm() {
         </p>
       )}
 
-      <Button type="submit" disabled={status === "sending"}>
-        {status === "sending" ? "Enviando..." : "Enviar solicitud"}
+      {hasError && (
+        <p
+          role="alert"
+          className="rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-700"
+        >
+          No pudimos enviar tu solicitud. Inténtalo nuevamente.
+        </p>
+      )}
+
+      <Button type="submit" disabled={isSubmitting}>
+        {isSubmitting ? "Enviando..." : "Enviar solicitud"}
       </Button>
     </form>
   );
