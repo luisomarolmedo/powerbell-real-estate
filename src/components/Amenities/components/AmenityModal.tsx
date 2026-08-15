@@ -11,7 +11,7 @@ type AmenityModalProps = {
 };
 
 function AmenityModal({
-  amenity: { icon: Icon, title, modalDescription, details },
+  amenity: { icon: Icon, title, modalDescription, details, image },
   onClose,
 }: AmenityModalProps) {
   const [visible, setVisible] = useState(false);
@@ -66,56 +66,66 @@ function AmenityModal({
         aria-labelledby="amenity-modal-title"
         tabIndex={-1}
         onClick={(event) => event.stopPropagation()}
-        className={`relative flex w-full max-w-lg flex-col gap-5 rounded-2xl border border-stone-200 bg-white p-6 shadow-lg outline-none transition-all duration-200 sm:p-8 ${
+        className={`relative flex max-h-[90vh] w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-lg outline-none transition-all duration-200 ${
           isOpen ? "scale-100" : "scale-95"
         }`}
       >
-        <header className="flex items-start justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="flex size-12 items-center justify-center rounded-xl bg-stone-100 text-stone-700">
-              <Icon size={22} />
-            </div>
-
-            <h2
-              id="amenity-modal-title"
-              className="text-2xl font-semibold text-stone-900"
-            >
-              {title}
-            </h2>
-          </div>
+        <div className="relative">
+          <img
+            src={image}
+            alt={title}
+            className="aspect-[4/3] w-full object-cover"
+          />
 
           <button
             type="button"
             onClick={close}
             aria-label="Cerrar modal"
-            className="rounded-lg p-2 text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-900"
+            className="absolute right-4 top-4 rounded-lg bg-white/90 p-2 text-stone-500 shadow-sm backdrop-blur transition-colors hover:bg-white hover:text-stone-900"
           >
             <X size={20} />
           </button>
-        </header>
+        </div>
 
-        <p className="leading-relaxed text-stone-600">{modalDescription}</p>
+        <div className="flex flex-col gap-5 overflow-y-auto p-6 sm:p-8">
+          <header className="flex items-start justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="flex size-12 items-center justify-center rounded-xl bg-stone-100 text-stone-700">
+                <Icon size={22} />
+              </div>
 
-        <ul className="space-y-2">
-          {details.map((detail) => (
-            <li
-              key={detail}
-              className="flex items-center gap-2.5 text-stone-700"
+              <h2
+                id="amenity-modal-title"
+                className="text-2xl font-semibold text-stone-900"
+              >
+                {title}
+              </h2>
+            </div>
+          </header>
+
+          <p className="leading-relaxed text-stone-600">{modalDescription}</p>
+
+          <ul className="space-y-2">
+            {details.map((detail) => (
+              <li
+                key={detail}
+                className="flex items-center gap-2.5 text-stone-700"
+              >
+                <Check size={16} className="shrink-0 text-stone-500" />
+                {detail}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-auto">
+            <Button
+              variant="secondary"
+              onClick={close}
+              className="w-full sm:w-auto"
             >
-              <Check size={16} className="shrink-0 text-stone-500" />
-              {detail}
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-auto">
-          <Button
-            variant="secondary"
-            onClick={close}
-            className="w-full sm:w-auto"
-          >
-            Cerrar
-          </Button>
+              Cerrar
+            </Button>
+          </div>
         </div>
       </div>
     </div>

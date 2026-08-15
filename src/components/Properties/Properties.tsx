@@ -27,6 +27,7 @@ function Properties() {
               bedrooms={property.bedrooms}
               bathrooms={property.bathrooms}
               area={property.area}
+              image={property.image}
               onViewDetails={() => setSelectedProperty(property)}
             />
           ))}

@@ -1,5 +1,4 @@
 import { Bath, BedDouble, Ruler } from "lucide-react";
-import heroImage from "../../../assets/images/hero.png";
 import Button from "../../shared/Button";
 import Card from "../../shared/Card";
 
@@ -9,6 +8,7 @@ type PropertyCardProps = {
   bedrooms: number;
   bathrooms: number;
   area: string;
+  image: string;
   onViewDetails: () => void;
 };
 
@@ -18,13 +18,14 @@ function PropertyCard({
   bedrooms,
   bathrooms,
   area,
+  image,
   onViewDetails,
 }: PropertyCardProps) {
   return (
     <Card className="flex h-full flex-col overflow-hidden">
       <div className="overflow-hidden">
         <img
-          src={heroImage}
+          src={image}
           alt={name}
           className="aspect-[4/3] w-full object-cover transition-transform duration-300 hover:scale-[1.03]"
         />

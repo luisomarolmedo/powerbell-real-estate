@@ -1,6 +1,13 @@
 import { Briefcase, Dumbbell, ShieldCheck, Sun, Trees, Waves } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+import albercaImage from "../../../assets/images/AlbercaInfinity.png";
+import gimnasioImage from "../../../assets/images/Gimnasio.jpg";
+import coworkingImage from "../../../assets/images/Coworking.jpg";
+import areasVerdesImage from "../../../assets/images/AreasVerdes.jpg";
+import roofGardenImage from "../../../assets/images/RoofGarden.jpg";
+import seguridadImage from "../../../assets/images/Seguridad.jpg";
+
 export type Amenity = {
   id: number;
   title: string;
@@ -8,6 +15,7 @@ export type Amenity = {
   modalDescription: string;
   details: string[];
   icon: LucideIcon;
+  image: string;
 };
 
 export const amenities: Amenity[] = [
@@ -23,6 +31,7 @@ export const amenities: Amenity[] = [
       "Uso exclusivo para residentes",
     ],
     icon: Waves,
+    image: albercaImage,
   },
   {
     id: 2,
@@ -36,6 +45,7 @@ export const amenities: Amenity[] = [
       "Acceso para residentes",
     ],
     icon: Dumbbell,
+    image: gimnasioImage,
   },
   {
     id: 3,
@@ -49,6 +59,7 @@ export const amenities: Amenity[] = [
       "Área para reuniones",
     ],
     icon: Briefcase,
+    image: coworkingImage,
   },
   {
     id: 4,
@@ -58,6 +69,7 @@ export const amenities: Amenity[] = [
       "Jardines y zonas de descanso pensadas para disfrutar del aire libre.",
     details: ["Jardines", "Áreas de descanso", "Espacios al aire libre"],
     icon: Trees,
+    image: areasVerdesImage,
   },
   {
     id: 5,
@@ -67,6 +79,7 @@ export const amenities: Amenity[] = [
       "Terraza equipada para convivir, relajarte y disfrutar de vistas espectaculares.",
     details: ["Terraza", "Áreas sociales", "Vistas panorámicas"],
     icon: Sun,
+    image: roofGardenImage,
   },
   {
     id: 6,
@@ -76,5 +89,6 @@ export const amenities: Amenity[] = [
       "Acceso controlado y vigilancia continua para brindarte mayor tranquilidad.",
     details: ["Acceso controlado", "Vigilancia 24/7", "Atención continua"],
     icon: ShieldCheck,
+    image: seguridadImage,
   },
 ];

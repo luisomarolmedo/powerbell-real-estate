@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Bath, BedDouble, Check, Ruler, X } from "lucide-react";
 
-import heroImage from "../../../assets/images/hero.png";
 import Button from "../../shared/Button";
 
 import type { Property } from "../data/properties";
@@ -12,7 +11,16 @@ type PropertyModalProps = {
 };
 
 function PropertyModal({
-  property: { name, price, bedrooms, bathrooms, area, description, features },
+  property: {
+    name,
+    price,
+    bedrooms,
+    bathrooms,
+    area,
+    image,
+    description,
+    features,
+  },
   onClose,
 }: PropertyModalProps) {
   const [visible, setVisible] = useState(false);
@@ -73,7 +81,7 @@ function PropertyModal({
       >
         <div className="relative">
           <img
-            src={heroImage}
+            src={image}
             alt={name}
             className="aspect-[4/3] w-full object-cover"
           />
