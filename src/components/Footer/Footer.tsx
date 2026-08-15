@@ -1,10 +1,18 @@
 import Container from "../shared/Container";
 
+const navLinks = [
+  { label: "Inicio", href: "#inicio" },
+  { label: "Amenidades", href: "#amenidades" },
+  { label: "Departamentos", href: "#departamentos" },
+  { label: "Galería", href: "#galeria" },
+  { label: "Contacto", href: "#contacto" },
+];
+
 function Footer() {
   return (
-    <footer className="border-t border-stone-200 bg-white py-10">
+    <footer className="border-t border-stone-200 bg-white py-14">
       <Container>
-        <div className="flex flex-col items-center justify-between gap-6 text-center md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-8 text-center md:flex-row md:items-start md:text-left">
           <div>
             <h3 className="text-xl font-semibold text-stone-900">Terranova</h3>
 
@@ -13,31 +21,15 @@ function Footer() {
             </p>
           </div>
 
-          <nav>
-            <ul className="flex flex-wrap justify-center gap-6 text-sm text-stone-600">
-              <li>
-                <a href="#inicio" className="hover:text-stone-900">
-                  Inicio
-                </a>
-              </li>
-
-              <li>
-                <a href="#amenidades" className="hover:text-stone-900">
-                  Amenidades
-                </a>
-              </li>
-
-              <li>
-                <a href="#departamentos" className="hover:text-stone-900">
-                  Departamentos
-                </a>
-              </li>
-
-              <li>
-                <a href="#contacto" className="hover:text-stone-900">
-                  Contacto
-                </a>
-              </li>
+          <nav aria-label="Navegación principal">
+            <ul className="flex flex-wrap justify-center gap-6 text-sm text-stone-600 md:justify-end">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="hover:text-stone-900">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>

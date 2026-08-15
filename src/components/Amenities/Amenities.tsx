@@ -18,6 +18,7 @@ function Amenities() {
               key={amenity.id}
               title={amenity.title}
               description={amenity.description}
+              icon={amenity.icon}
             />
           ))}
         </div>

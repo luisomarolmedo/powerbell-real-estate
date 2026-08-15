@@ -4,6 +4,8 @@ type ButtonProps = {
   children: ReactNode;
   variant?: "primary" | "secondary";
   className?: string;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
   onClick?: () => void;
 };
 
@@ -18,12 +20,15 @@ function Button({
   children,
   variant = "primary",
   className = "",
+  type = "button",
+  disabled = false,
   onClick,
 }: ButtonProps) {
   return (
     <button
-      type="button"
+      type={type}
       onClick={onClick}
+      disabled={disabled}
       className={`
         rounded-sm
         px-6
@@ -36,6 +41,8 @@ function Button({
         focus-visible:outline-2
         focus-visible:outline-offset-2
         focus-visible:outline-stone-900
+        disabled:cursor-not-allowed
+        disabled:opacity-60
         ${variants[variant]}
         ${className}
         `}
