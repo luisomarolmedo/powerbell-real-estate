@@ -3,17 +3,17 @@ import HeroBadge from "./HeroBadge";
 
 function HeroContent() {
   return (
-    <div className="flex flex-col gap-6 lg:gap-8">
+    <div className="flex flex-col gap-8 lg:gap-10">
       <HeroBadge />
 
       <header className="flex flex-col gap-4">
         <h1
           id="hero-heading"
-          className="font-serif text-4xl leading-tight tracking-tight text-stone-900 sm:text-5xl lg:text-6xl"
+          className="max-w-2xl font-serif text-5xl font-semibold leading-tight tracking-tight text-stone-900 lg:text-6xl"
         >
           Vive donde siempre soñaste.
         </h1>
-        <p className="max-w-lg text-base leading-relaxed text-stone-600 sm:text-lg">
+        <p className="max-w-xl text-lg leading-8 text-stone-600">
           Departamentos de diseño con acabados premium, espacios amplios y
           amenidades exclusivas en una ubicación privilegiada de Guadalajara.
         </p>

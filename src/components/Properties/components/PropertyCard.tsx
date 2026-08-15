@@ -34,7 +34,7 @@ function PropertyCard({
           <li>📐 {area}</li>
         </ul>
 
-        <Button>Ver detalles</Button>
+        <Button variant="secondary">Ver detalles</Button>
       </div>
     </Card>
   );

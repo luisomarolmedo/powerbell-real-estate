@@ -1,4 +1,4 @@
-import heroImage from '../../../assets/images/hero.png'
+import heroImage from "../../../assets/images/hero.png";
 
 function HeroImage() {
   return (
@@ -6,10 +6,10 @@ function HeroImage() {
       <img
         src={heroImage}
         alt="Vista del desarrollo residencial premium en Guadalajara"
-        className="aspect-[4/5] w-full object-cover sm:aspect-[5/6] lg:aspect-[4/5]"
+        className="aspect-[4/5] w-full object-cover sm:aspect-[5/6] lg:aspect-square"
       />
     </figure>
-  )
+  );
 }
 
-export default HeroImage
+export default HeroImage;

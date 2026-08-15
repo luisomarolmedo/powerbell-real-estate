@@ -26,8 +26,8 @@ function Button({
       onClick={onClick}
       className={`
         rounded-sm
-        px-5
-        py-2.5
+        px-6
+        py-3
         text-sm
         font-medium
         tracking-wide
