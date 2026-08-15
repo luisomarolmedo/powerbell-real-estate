@@ -4,7 +4,9 @@ import { ArrowRight } from "lucide-react";
 function HeroActions() {
   return (
     <div className="flex items-center gap-6">
-      <Button>Agenda una visita</Button>
+      <a href="#contacto">
+        <Button>Agenda una visita</Button>
+      </a>
 
       <a
         href="#departamentos"

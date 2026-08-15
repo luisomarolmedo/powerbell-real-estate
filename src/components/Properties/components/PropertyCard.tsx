@@ -9,6 +9,7 @@ type PropertyCardProps = {
   bedrooms: number;
   bathrooms: number;
   area: string;
+  onViewDetails: () => void;
 };
 
 function PropertyCard({
@@ -17,6 +18,7 @@ function PropertyCard({
   bedrooms,
   bathrooms,
   area,
+  onViewDetails,
 }: PropertyCardProps) {
   return (
     <Card className="flex h-full flex-col overflow-hidden">
@@ -50,7 +52,11 @@ function PropertyCard({
           </li>
         </ul>
 
-        <Button variant="secondary" className="mt-auto w-full">
+        <Button
+          variant="secondary"
+          onClick={onViewDetails}
+          className="mt-auto w-full"
+        >
           Ver detalles
         </Button>
       </div>

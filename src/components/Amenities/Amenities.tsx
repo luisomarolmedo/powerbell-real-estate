@@ -1,9 +1,13 @@
+import { useState } from "react";
 import AmenityCard from "./components/AmenityCard";
-import { amenities } from "./data/amenities";
+import AmenityModal from "./components/AmenityModal";
+import { amenities, type Amenity } from "./data/amenities";
 import Container from "../shared/Container";
 import SectionTitle from "../shared/SectionTitle";
 
 function Amenities() {
+  const [selectedAmenity, setSelectedAmenity] = useState<Amenity | null>(null);
+
   return (
     <section id="amenidades" className="bg-stone-50 py-20">
       <Container>
@@ -19,10 +23,18 @@ function Amenities() {
               title={amenity.title}
               description={amenity.description}
               icon={amenity.icon}
+              onViewDetails={() => setSelectedAmenity(amenity)}
             />
           ))}
         </div>
       </Container>
+
+      {selectedAmenity && (
+        <AmenityModal
+          amenity={selectedAmenity}
+          onClose={() => setSelectedAmenity(null)}
+        />
+      )}
     </section>
   );
 }
