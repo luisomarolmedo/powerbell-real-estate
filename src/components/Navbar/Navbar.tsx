@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "../shared/Button";
+import { handleInternalAnchorClick } from "../../utils/scroll";
 import HamburgerButton from "./components/HamburgerButton";
 import MobileMenu from "./components/MobileMenu";
 import NavLinks from "./components/NavLinks";
@@ -25,6 +26,7 @@ function Navbar() {
           href="#inicio"
           className="font-serif text-3xl tracking-tight text-stone-900 transition-opacity hover:opacity-80"
           aria-label="Altum Living — Ir al inicio"
+          onClick={handleInternalAnchorClick}
         >
           Terranova
         </a>
@@ -34,7 +36,7 @@ function Navbar() {
         </div>
 
         <div className="hidden items-center justify-end gap-4 md:flex">
-          <a href="#contacto">
+          <a href="#contacto" onClick={handleInternalAnchorClick}>
             <Button>Agenda una visita</Button>
           </a>
         </div>

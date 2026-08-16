@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Bath, BedDouble, Check, Ruler, X } from "lucide-react";
 
 import Button from "../../shared/Button";
+import { handleInternalAnchorClick } from "../../../utils/scroll";
 
 import type { Property } from "../data/properties";
 
@@ -142,7 +143,7 @@ function PropertyModal({
               Cerrar
             </Button>
 
-            <a href="#contacto">
+            <a href="#contacto" onClick={handleInternalAnchorClick}>
               <Button className="w-full sm:w-auto">Agendar una visita</Button>
             </a>
           </div>

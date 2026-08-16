@@ -1,4 +1,5 @@
 import { NAV_LINKS } from "../navConfig";
+import { handleInternalAnchorClick } from "../../../utils/scroll";
 
 type NavLinksProps = {
   orientation?: "horizontal" | "vertical";
@@ -28,7 +29,10 @@ function NavLinks({ orientation = "horizontal", onLinkClick }: NavLinksProps) {
           <a
             href={href}
             className={linkStyles[orientation]}
-            onClick={onLinkClick}
+            onClick={(event) => {
+              handleInternalAnchorClick(event);
+              onLinkClick?.();
+            }}
           >
             {label}
           </a>

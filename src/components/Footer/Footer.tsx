@@ -1,4 +1,5 @@
 import Container from "../shared/Container";
+import { handleInternalAnchorClick } from "../../utils/scroll";
 
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
@@ -25,7 +26,11 @@ function Footer() {
             <ul className="flex flex-wrap justify-center gap-6 text-sm text-stone-600 md:justify-end">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="hover:text-stone-900">
+                  <a
+                    href={link.href}
+                    className="hover:text-stone-900"
+                    onClick={handleInternalAnchorClick}
+                  >
                     {link.label}
                   </a>
                 </li>
