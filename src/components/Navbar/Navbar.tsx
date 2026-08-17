@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Button from "../shared/Button";
 import { handleInternalAnchorClick } from "../../utils/scroll";
 import HamburgerButton from "./components/HamburgerButton";
@@ -12,9 +12,22 @@ function Navbar() {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
-  const closeMobileMenu = () => {
+  const closeMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(false);
-  };
+  }, []);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeMobileMenu();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isMobileMenuOpen, closeMobileMenu]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-stone-200/80 bg-white/95 backdrop-blur-md">

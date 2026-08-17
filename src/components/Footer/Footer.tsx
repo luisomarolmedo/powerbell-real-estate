@@ -6,41 +6,83 @@ const navLinks = [
   { label: "Amenidades", href: "#amenidades" },
   { label: "Departamentos", href: "#departamentos" },
   { label: "Galería", href: "#galeria" },
-  { label: "Contacto", href: "#contacto" },
 ];
 
 function Footer() {
   return (
-    <footer className="border-t border-stone-200 bg-white py-14">
+    <footer className="py-20" style={{ backgroundColor: "#1C1917" }}>
       <Container>
-        <div className="flex flex-col items-center justify-between gap-8 text-center md:flex-row md:items-start md:text-left">
-          <div>
-            <h3 className="text-xl font-semibold text-stone-900">Altavia</h3>
-
-            <p className="mt-2 text-sm text-stone-500">
+        <div className="flex flex-col gap-12">
+          <div className="flex flex-col items-center text-center">
+            <h3 className="font-serif text-4xl tracking-tight text-white">
+              ALTAVIA
+            </h3>
+            <p className="mt-4 text-sm text-stone-400">
               Vive donde siempre soñaste.
+            </p>
+            <p className="mt-8 max-w-md text-xl leading-relaxed text-stone-300">
+              Tu próximo espacio comienza aquí.
             </p>
           </div>
 
-          <nav aria-label="Navegación principal">
-            <ul className="flex flex-wrap justify-center gap-6 text-sm text-stone-600 md:justify-end">
-              {navLinks.map((link) => (
-                <li key={link.href}>
+          <div className="h-px w-full bg-stone-700" />
+
+          <div className="grid gap-10 sm:grid-cols-2 sm:gap-8 md:grid-cols-[1fr_1fr_auto]">
+            <div>
+              <h4 className="mb-4 text-xs font-medium tracking-[0.2em] text-stone-500">
+                EXPLORA
+              </h4>
+              <ul className="space-y-2.5">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-stone-400 transition-colors hover:text-white"
+                      onClick={handleInternalAnchorClick}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="mb-4 text-xs font-medium tracking-[0.2em] text-stone-500">
+                CONTACTO
+              </h4>
+              <ul className="space-y-2.5 text-sm text-stone-400">
+                <li>Guadalajara, Jalisco</li>
+                <li>
                   <a
-                    href={link.href}
-                    className="hover:text-stone-900"
-                    onClick={handleInternalAnchorClick}
+                    href="mailto:contacto@altavia.mx"
+                    className="transition-colors hover:text-white"
                   >
-                    {link.label}
+                    contacto@altavia.mx
                   </a>
                 </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+                <li>
+                  <a
+                    href="tel:+523312345678"
+                    className="transition-colors hover:text-white"
+                  >
+                    (33) 1234 5678
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-        <div className="mt-8 border-t border-stone-200 pt-6 text-center text-sm text-stone-500">
-          © {new Date().getFullYear()} Altavia. Todos los derechos reservados.
+          <div className="h-px w-full bg-stone-700" />
+
+          <div className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
+            <span className="font-serif text-lg tracking-tight text-stone-500">
+              ALTAVIA
+            </span>
+            <span className="text-xs text-stone-500">
+              &copy; {new Date().getFullYear()} Altavia. Todos los derechos reservados.
+            </span>
+          </div>
         </div>
       </Container>
     </footer>

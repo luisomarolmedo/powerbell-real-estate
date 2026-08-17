@@ -20,6 +20,10 @@ function HeroContent() {
       </header>
 
       <HeroActions />
+
+      <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.25em] text-stone-400">
+        Altavia Residencial · Guadalajara
+      </p>
     </div>
   );
 }

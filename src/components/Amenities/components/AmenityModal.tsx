@@ -18,9 +18,11 @@ function AmenityModal({
   const [closing, setClosing] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
 
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const close = useCallback(() => {
     setClosing(true);
-    window.setTimeout(onClose, 200);
+    timeoutRef.current = window.setTimeout(onClose, 200);
   }, [onClose]);
 
   useEffect(() => {
@@ -40,6 +42,7 @@ function AmenityModal({
 
     return () => {
       cancelAnimationFrame(frame);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
       document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", handleKeyDown);
     };

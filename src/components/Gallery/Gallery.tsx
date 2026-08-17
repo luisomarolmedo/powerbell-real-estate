@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import Container from "../shared/Container";
+import SectionLabel from "../shared/SectionLabel";
 import SectionTitle from "../shared/SectionTitle";
 
 import GalleryImage from "./components/GalleryImage";
@@ -13,8 +14,9 @@ function Gallery() {
   const [selected, setSelected] = useState<GalleryItem | null>(null);
 
   return (
-    <section id="galeria" className="bg-white py-20">
+    <section id="galeria" className="py-24" style={{ backgroundColor: "#F3F1EC" }}>
       <Container>
+        <SectionLabel number="03" label="GALERÍA" />
         <SectionTitle
           title="Conoce cada espacio"
           subtitle="Explora las amenidades y áreas comunes diseñadas para brindarte una experiencia excepcional."

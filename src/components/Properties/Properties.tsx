@@ -3,6 +3,7 @@ import { properties, type Property } from "./data/properties";
 import PropertyCard from "./components/PropertyCard";
 import PropertyModal from "./components/PropertyModal";
 import Container from "../shared/Container";
+import SectionLabel from "../shared/SectionLabel";
 import SectionTitle from "../shared/SectionTitle";
 
 function Properties() {
@@ -11,8 +12,9 @@ function Properties() {
   );
 
   return (
-    <section id="departamentos" className="bg-stone-50 py-20">
+    <section id="departamentos" className="bg-white py-24">
       <Container>
+        <SectionLabel number="02" label="RESIDENCIAS" />
         <SectionTitle
           title="Espacios diseñados para cada etapa de tu vida"
           subtitle="Encuentra el departamento ideal para ti y tu familia."

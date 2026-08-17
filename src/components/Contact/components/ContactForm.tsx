@@ -46,7 +46,7 @@ function ContactForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="space-y-6 rounded-2xl border border-stone-200 bg-white p-8 shadow-sm"
+      className="space-y-6 rounded-2xl border border-stone-200 bg-white p-8 shadow-[0_4px_20px_-4px_rgba(28,25,23,0.06)]"
     >
       <div>
         <h3 className="text-2xl font-semibold tracking-tight text-stone-900">

@@ -19,6 +19,8 @@ function PropertyModal({
     bathrooms,
     area,
     image,
+    floorPlan,
+    floorPlanAlt,
     description,
     features,
   },
@@ -28,9 +30,11 @@ function PropertyModal({
   const [closing, setClosing] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
 
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const close = useCallback(() => {
     setClosing(true);
-    window.setTimeout(onClose, 200);
+    timeoutRef.current = window.setTimeout(onClose, 200);
   }, [onClose]);
 
   useEffect(() => {
@@ -50,6 +54,7 @@ function PropertyModal({
 
     return () => {
       cancelAnimationFrame(frame);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
       document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", handleKeyDown);
     };
@@ -137,6 +142,17 @@ function PropertyModal({
               </li>
             ))}
           </ul>
+
+          <div className="border-t border-stone-200 pt-5">
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-stone-500">
+              Plano arquitectónico
+            </h3>
+            <img
+              src={floorPlan}
+              alt={floorPlanAlt}
+              className="w-full rounded-lg border border-stone-200 object-contain"
+            />
+          </div>
 
           <div className="mt-auto flex flex-col gap-3 sm:flex-row sm:justify-end">
             <Button variant="secondary" onClick={close} className="w-full sm:w-auto">

@@ -37,8 +37,16 @@ function ContactInfo() {
         </div>
       </div>
 
-      <div className="border-t border-stone-200 pt-8">
-        <p className="font-serif text-2xl tracking-tight text-stone-900">
+      <div className="border-t border-stone-300 pt-8">
+        <p className="font-serif text-2xl leading-snug tracking-tight text-stone-900">
+          Tu próximo espacio
+          <br />
+          comienza aquí.
+        </p>
+      </div>
+
+      <div className="border-t border-stone-300 pt-8">
+        <p className="font-serif text-lg tracking-tight text-stone-900">
           Altavia
         </p>
         <p className="mt-1 text-sm text-stone-400">

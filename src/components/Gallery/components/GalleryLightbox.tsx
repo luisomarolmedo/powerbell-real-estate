@@ -13,9 +13,11 @@ function GalleryLightbox({ item, onClose }: GalleryLightboxProps) {
   const [closing, setClosing] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const close = useCallback(() => {
     setClosing(true);
-    window.setTimeout(onClose, 200);
+    timeoutRef.current = window.setTimeout(onClose, 200);
   }, [onClose]);
 
   useEffect(() => {
@@ -48,6 +50,7 @@ function GalleryLightbox({ item, onClose }: GalleryLightboxProps) {
 
     return () => {
       cancelAnimationFrame(frame);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
       document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", handleKeyDown);
       previouslyFocused?.focus();

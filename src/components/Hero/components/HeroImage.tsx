@@ -2,7 +2,7 @@ import heroImage from "../../../assets/images/AltaviaMain.jpg";
 
 function HeroImage() {
   return (
-    <figure className="w-full overflow-hidden rounded-2xl shadow-lg shadow-stone-900/10">
+    <figure className="w-full overflow-hidden rounded-2xl shadow-[0_8px_30px_-4px_rgba(28,25,23,0.08)]">
       <img
         src={heroImage}
         alt="Vista del desarrollo residencial premium en Guadalajara"

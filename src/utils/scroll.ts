@@ -35,3 +35,10 @@ export function handleInternalAnchorClick(
 
   scrollToHash(href);
 }
+
+window.addEventListener("popstate", () => {
+  const hash = window.location.hash;
+  if (hash) {
+    scrollToHash(hash);
+  }
+});
