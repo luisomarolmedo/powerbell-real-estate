@@ -6,14 +6,14 @@ import ContactInfo from "./components/ContactInfo";
 
 function Contact() {
   return (
-    <section id="contacto" className="bg-stone-50 py-20">
+    <section id="contacto" className="bg-stone-50 py-24">
       <Container>
         <SectionTitle
-          title="Contáctanos"
-          subtitle="Agenda una visita y conoce Terranova."
+          title="Conoce Altavia en persona"
+          subtitle="Agenda una visita y descubre un espacio diseñado para tu estilo de vida."
         />
 
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid items-start gap-16 lg:grid-cols-2">
           <ContactInfo />
 
           <ContactForm />

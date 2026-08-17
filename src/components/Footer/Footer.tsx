@@ -15,7 +15,7 @@ function Footer() {
       <Container>
         <div className="flex flex-col items-center justify-between gap-8 text-center md:flex-row md:items-start md:text-left">
           <div>
-            <h3 className="text-xl font-semibold text-stone-900">Terranova</h3>
+            <h3 className="text-xl font-semibold text-stone-900">Altavia</h3>
 
             <p className="mt-2 text-sm text-stone-500">
               Vive donde siempre soñaste.
@@ -40,7 +40,7 @@ function Footer() {
         </div>
 
         <div className="mt-8 border-t border-stone-200 pt-6 text-center text-sm text-stone-500">
-          © {new Date().getFullYear()} Terranova. Todos los derechos reservados.
+          © {new Date().getFullYear()} Altavia. Todos los derechos reservados.
         </div>
       </Container>
     </footer>

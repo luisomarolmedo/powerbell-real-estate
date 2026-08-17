@@ -12,16 +12,16 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <div id="amenidades">
+        <div>
           <Amenities />
         </div>
-        <div id="departamentos">
+        <div>
           <Properties />
         </div>
-        <div id="galeria">
+        <div>
           <Gallery />
         </div>
-        <div id="contacto">
+        <div>
           <Contact />
         </div>
       </main>

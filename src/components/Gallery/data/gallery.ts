@@ -1,4 +1,4 @@
-import TerranovaMain from "../../../assets/images/TerranovaMain.jpg";
+import AltaviaMain from "../../../assets/images/AltaviaMain.jpg";
 import AlbercaInfinity from "../../../assets/images/AlbercaInfinity.png";
 import LoftUrbano from "../../../assets/images/LoftUrbano.jpg";
 import RoofGarden from "../../../assets/images/RoofGarden.jpg";
@@ -17,9 +17,9 @@ export type GalleryItem = {
 export const gallery: GalleryItem[] = [
   {
     id: 1,
-    title: "Terranova",
-    alt: "Vista principal del desarrollo residencial Terranova con sus áreas comunes",
-    image: TerranovaMain,
+    title: "Altavia",
+    alt: "Vista principal del desarrollo residencial Altavia con sus áreas comunes",
+    image: AltaviaMain,
   },
   {
     id: 2,

@@ -24,11 +24,11 @@ function Navbar() {
       >
         <a
           href="#inicio"
-          className="font-serif text-3xl tracking-tight text-stone-900 transition-opacity hover:opacity-80"
-          aria-label="Altum Living — Ir al inicio"
+          className="font-serif text-3xl tracking-tight text-stone-900 transition-opacity hover:opacity-80 uppercase"
+          aria-label="Altavia — Ir al inicio"
           onClick={handleInternalAnchorClick}
         >
-          Terranova
+          Altavia
         </a>
 
         <div className="hidden md:flex md:justify-center">

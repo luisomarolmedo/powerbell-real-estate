@@ -1,4 +1,4 @@
-import heroImage from "../../../assets/images/TerranovaMain.jpg";
+import heroImage from "../../../assets/images/AltaviaMain.jpg";
 
 function HeroImage() {
   return (
