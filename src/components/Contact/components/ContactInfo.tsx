@@ -28,11 +28,11 @@ function ContactInfo() {
           </a>
 
           <a
-            href="mailto:contacto@altavia.mx"
+            href="mailto:contacto@altavia.example"
             className="flex items-center gap-3 transition-colors hover:text-stone-900"
           >
             <Mail size={18} className="text-stone-400" />
-            contacto@altavia.mx
+            contacto@altavia.example
           </a>
         </div>
       </div>

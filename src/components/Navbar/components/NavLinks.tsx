@@ -8,7 +8,7 @@ type NavLinksProps = {
 
 const linkStyles = {
   horizontal:
-    "text-sm font-medium tracking-wide text-stone-600 transition-colors hover:text-stone-900",
+    "relative text-[13px] font-normal tracking-wide text-stone-500 transition-colors duration-200 hover:text-stone-900 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full",
   vertical:
     "block px-4 py-3 text-base font-medium text-stone-700 transition-colors hover:bg-stone-50 hover:text-stone-900",
 };

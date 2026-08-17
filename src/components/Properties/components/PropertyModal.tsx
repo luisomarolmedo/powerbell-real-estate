@@ -28,6 +28,7 @@ function PropertyModal({
 }: PropertyModalProps) {
   const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
+  const [planExpanded, setPlanExpanded] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
 
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -46,7 +47,11 @@ function PropertyModal({
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        close();
+        if (planExpanded) {
+          setPlanExpanded(false);
+        } else {
+          close();
+        }
       }
     };
 
@@ -58,11 +63,12 @@ function PropertyModal({
       document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [close]);
+  }, [close, planExpanded]);
 
   const isOpen = visible && !closing;
 
   return (
+    <>
     <div
       className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity duration-200 ${
         isOpen ? "opacity-100" : "opacity-0"
@@ -147,11 +153,17 @@ function PropertyModal({
             <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-stone-500">
               Plano arquitectónico
             </h3>
-            <img
-              src={floorPlan}
-              alt={floorPlanAlt}
-              className="w-full rounded-lg border border-stone-200 object-contain"
-            />
+            <button
+              type="button"
+              onClick={() => setPlanExpanded(true)}
+              className="group w-full cursor-zoom-in rounded-lg border border-stone-200 transition-shadow hover:shadow-md"
+            >
+              <img
+                src={floorPlan}
+                alt={floorPlanAlt}
+                className="w-full rounded-lg object-contain transition-opacity group-hover:opacity-90"
+              />
+            </button>
           </div>
 
           <div className="mt-auto flex flex-col gap-3 sm:flex-row sm:justify-end">
@@ -166,6 +178,35 @@ function PropertyModal({
         </div>
       </div>
     </div>
+
+    {planExpanded && (
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={floorPlanAlt}
+        className="fixed inset-0 z-[60] flex items-center justify-center p-4 transition-opacity duration-200 opacity-100"
+        onClick={() => setPlanExpanded(false)}
+      >
+        <div className="absolute inset-0 bg-stone-900/80" aria-hidden="true" />
+
+        <button
+          type="button"
+          onClick={() => setPlanExpanded(false)}
+          aria-label="Cerrar plano"
+          className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2.5 text-white backdrop-blur transition-colors hover:bg-white/20"
+        >
+          <X size={22} />
+        </button>
+
+        <img
+          src={floorPlan}
+          alt={floorPlanAlt}
+          onClick={(event) => event.stopPropagation()}
+          className="relative z-10 max-h-[85vh] max-w-full rounded-lg object-contain shadow-2xl"
+        />
+      </div>
+    )}
+    </>
   );
 }
 

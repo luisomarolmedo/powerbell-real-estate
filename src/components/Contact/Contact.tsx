@@ -7,7 +7,11 @@ import ContactInfo from "./components/ContactInfo";
 
 function Contact() {
   return (
-    <section id="contacto" className="py-24" style={{ backgroundColor: "#F3F1EC" }}>
+    <section
+      id="contacto"
+      className="py-24"
+      style={{ backgroundColor: "#FAFAF8" }}
+    >
       <Container>
         <SectionLabel number="04" label="CONTACTO" />
         <SectionTitle

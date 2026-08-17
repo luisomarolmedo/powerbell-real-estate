@@ -55,10 +55,10 @@ function Footer() {
                 <li>Guadalajara, Jalisco</li>
                 <li>
                   <a
-                    href="mailto:contacto@altavia.mx"
+                    href="mailto:contacto@altavia.example"
                     className="transition-colors hover:text-white"
                   >
-                    contacto@altavia.mx
+                    contacto@altavia.example
                   </a>
                 </li>
                 <li>
@@ -80,7 +80,8 @@ function Footer() {
               ALTAVIA
             </span>
             <span className="text-xs text-stone-500">
-              &copy; {new Date().getFullYear()} Altavia. Todos los derechos reservados.
+              &copy; {new Date().getFullYear()} Altavia. Todos los derechos
+              reservados.
             </span>
           </div>
         </div>
