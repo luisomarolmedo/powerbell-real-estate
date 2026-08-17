@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Bath, BedDouble, Check, Ruler, X } from "lucide-react";
 
 import Button from "../../shared/Button";
@@ -179,33 +180,35 @@ function PropertyModal({
       </div>
     </div>
 
-    {planExpanded && (
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-label={floorPlanAlt}
-        className="fixed inset-0 z-[60] flex items-center justify-center p-4 transition-opacity duration-200 opacity-100"
-        onClick={() => setPlanExpanded(false)}
-      >
-        <div className="absolute inset-0 bg-stone-900/80" aria-hidden="true" />
-
-        <button
-          type="button"
+    {planExpanded &&
+      createPortal(
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={floorPlanAlt}
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4 opacity-100"
           onClick={() => setPlanExpanded(false)}
-          aria-label="Cerrar plano"
-          className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2.5 text-white backdrop-blur transition-colors hover:bg-white/20"
         >
-          <X size={22} />
-        </button>
+          <div className="absolute inset-0 bg-stone-900/80" aria-hidden="true" />
 
-        <img
-          src={floorPlan}
-          alt={floorPlanAlt}
-          onClick={(event) => event.stopPropagation()}
-          className="relative z-10 max-h-[85vh] max-w-full rounded-lg object-contain shadow-2xl"
-        />
-      </div>
-    )}
+          <button
+            type="button"
+            onClick={() => setPlanExpanded(false)}
+            aria-label="Cerrar plano"
+            className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2.5 text-white backdrop-blur transition-colors hover:bg-white/20"
+          >
+            <X size={22} />
+          </button>
+
+          <img
+            src={floorPlan}
+            alt={floorPlanAlt}
+            onClick={(event) => event.stopPropagation()}
+            className="relative z-10 max-h-[85vh] max-w-full rounded-lg object-contain shadow-2xl"
+          />
+        </div>,
+        document.body,
+      )}
     </>
   );
 }
