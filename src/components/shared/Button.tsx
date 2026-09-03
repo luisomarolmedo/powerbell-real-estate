@@ -10,10 +10,10 @@ type ButtonProps = {
 };
 
 const variants = {
-  primary: "bg-stone-900 text-white hover:bg-stone-800",
+  primary: "border border-white bg-stone-900 text-white hover:bg-stone-800",
 
   secondary:
-    "border border-stone-300 bg-white text-stone-900 hover:bg-stone-50",
+    "border border-stone-900 bg-white text-stone-900 hover:bg-stone-50",
 };
 
 function Button({
@@ -36,7 +36,9 @@ function Button({
         text-sm
         font-medium
         tracking-wide
-        transition-colors
+        transition-all
+        hover:scale-105
+        active:scale-95
         focus-visible:outline
         focus-visible:outline-2
         focus-visible:outline-offset-2

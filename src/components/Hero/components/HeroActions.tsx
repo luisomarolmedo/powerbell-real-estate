@@ -11,7 +11,7 @@ function HeroActions() {
 
       <a
         href="#departamentos"
-        className="group inline-flex items-center gap-2 text-sm font-medium text-stone-900"
+        className="group inline-flex items-center gap-2 rounded-sm border border-stone-900 px-6 py-3 text-sm font-medium text-stone-900 transition-all hover:scale-105 hover:bg-stone-900 hover:text-white active:scale-95"
         onClick={handleInternalAnchorClick}
       >
         Ver departamentos

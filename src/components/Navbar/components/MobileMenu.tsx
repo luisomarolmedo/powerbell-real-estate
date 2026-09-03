@@ -26,7 +26,9 @@ function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             onClose();
           }}
         >
-          <Button className="w-full">Agenda una visita</Button>
+          <Button className="w-full !border-stone-900 !bg-stone-100 !text-stone-900">
+            Agenda una visita
+          </Button>
         </a>
       </div>
     </div>
